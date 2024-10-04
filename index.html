@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Звіти з Лабораторних Робіт</title>
     <style>
-        #labContent, #labContent2 {
+        body {
+            background-color: #e0f7fa; /* Світліший блакитний фон */
+        }
+
+        button {
+            background-color: #81d4fa; /* Світло-блакитні кнопки */
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #4fc3f7; /* Темніший відтінок для ефекту наведення */
+        }
+
+        #labContent, #labContent2, #labContent3 {
             display: none;
+        }
+
+        img {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 0px;
+            margin-top: -60px; /* Підняти фото на рівень заголовка */
+            width: 150px; /* Збільшення розміру фото */
+            height: auto;
+            position: relative; /* Використання position замість margin */
+            top: -60px; /* Регулювання підняття фото */
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px; /* Додано трохи відступу від фото */
+        }
+
+        #output img {
+            display: block;
+            margin: 0 auto; /* Вирівнювання зображень по центру */
+            max-width: 100%; /* Масштабування зображень відповідно до контейнера */
+            height: auto;
+            margin-top: 20px; /* Відступ для зображень */
         }
     </style>
     <script>
@@ -21,6 +64,15 @@
 
         function toggleLab2Content() {
             var content = document.getElementById("labContent2");
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function toggleLab3Content() {
+            var content = document.getElementById("labContent3");
             if (content.style.display === "none") {
                 content.style.display = "block";
             } else {
@@ -46,9 +98,9 @@
     <p align="center">З ДИСЦИПЛІНИ "ІНТЕРНЕТ-ТЕХНОЛОГІЇ ТА ПРОЕКТУВАННЯ WEB-ЗАСТОСУВАНЬ"</p>
     <p align="center">
         Студентки групи ІС-32 Червякової Наталії Миколаївни
-        <img src="./images/3х4.jpg" alt="Фото" style="float: right; margin-left: 20px; margin-bottom: 20px; width: 120px; height: auto;">
+        <img src="./images/3х4.jpg" alt="Фото">
     </p>
-    <table align="center" border="1" cellpadding="10" cellspacing="0" width="100%">
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
         <tr>
             <td align="center">
                 <button onclick="toggleLabContent()">Лабораторна робота №1</button>
@@ -56,7 +108,9 @@
             <td align="center">
                 <button onclick="toggleLab2Content()">Лабораторна робота №2</button>
             </td>
-            <td align="center"><a href="#"><button>Лабораторна робота №3</button></a></td>
+            <td align="center">
+                <button onclick="toggleLab3Content()">Лабораторна робота №3</button>
+            </td>
             <td align="center"><a href="#"><button>Лабораторна робота №4</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №5</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №6</button></a></td>
@@ -81,7 +135,6 @@
                 <p><button onclick="loadHTMLContent('conclusions.html')">Висновки</button></p>
             </td>
 
-            
             <td width="20%" valign="top" id="labContent2" style="display:none;">
                 <p><button onclick="loadHTMLContent('topic2.html')">Тема, Мета ЛР 2, Місце розташування сайту</button></p>
                 <p><button onclick="loadHTMLContent('selectorst.html')">Селектори тегу</button></p>
@@ -89,6 +142,13 @@
                 <p><button onclick="loadHTMLContent('selectorsi.html')">Селектори ідентифікаторів</button></p>
                 <p><button onclick="loadHTMLContent('selectors.html')">Інші селектори</button></p>
                 <p><button onclick="loadHTMLContent('conclusions2.html')">Висновки</button></p>
+            </td>
+            <td width="20%" valign="top" id="labContent3" style="display:none;">
+                <p><button onclick="loadHTMLContent('topic3.html')">Тема, Мета ЛР 3</button></p>
+                <p><button onclick="loadHTMLContent('fixedlayout.html')">Фіксована верстка</button></p>
+                <p><button onclick="loadHTMLContent('fluidlayout.html')">Гумова верстка</button></p>
+                <p><button onclick="loadHTMLContent('flexbox.html')">Верстка Flexbox</button></p>
+                <p><button onclick="loadHTMLContent('conclusions3.html')">Висновки</button></p>
             </td>
 
             <td valign="top" align="center" id="output">
