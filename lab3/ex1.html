@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Макет і код сайту</title>
-    <h2>Макет мого сайту</h2>
-    <img src="./сайт 1.png" alt="макет" width="500" height="300">
-    <img src="./сайт 2.png" alt="макет" width="500" height="300">
-    <img src="./сайт 3.png" alt="макет" width="500" height="300">
-    <img src="./код 1.png" alt="макет" width="500" height="300">
-    <img src="./код 2.png" alt="макет" width="500" height="300">
-    <img src="./код 3.png" alt="макет" width="500" height="300">
+    <style>
+        /* Стилі для збільшених зображень */
+        .large-image {
+            display: block;
+            margin: 20px auto; /* Вирівнювання по центру */
+            width: 800px;      /* Фіксована ширина 800 пікселів */
+            height: auto;      /* Автоматична висота для збереження пропорцій */
+            max-width: 100%;   /* Забезпечення адаптивності */
+        }
+    </style>
 </head>
 <body>
-    
+    <h2>Макет мого сайту</h2>
+    <img class="large-image" src="./сайт 1.png" alt="макет">
+    <img class="large-image" src="./сайт 2.png" alt="макет">
+    <img class="large-image" src="./сайт 3.png" alt="макет">
+    <img class="large-image" src="./код 1.png" alt="макет">
+    <img class="large-image" src="./код 2.png" alt="макет">
+    <img class="large-image" src="./код 3.png" alt="макет">
 </body>
 </html>
