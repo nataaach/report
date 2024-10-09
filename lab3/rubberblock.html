@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гумова таблична верстка</title>
+    <style>
+        table {
+            width: 80%; 
+            height: 80vh; 
+            max-width: 800px; 
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        .header, .footer {
+            background-color: blue;
+            color: white;
+            height: 8vh; 
+        }
+        .side {
+            background-color: yellow;
+            width: 20%; 
+        }
+        .content {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<h2>Гумова блочна верстка</h2>
+<table>
+    <tr>
+        <td colspan="3" class="header">1</td>
+    </tr>
+    <tr>
+        <td class="side">2</td>
+        <td class="content">4</td>
+        <td class="side">5</td>
+    </tr>
+    <tr>
+        <td colspan="3" class="footer">3</td>
+    </tr>
+</table>
+
+</body>
+</html>
