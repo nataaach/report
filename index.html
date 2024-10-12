@@ -24,7 +24,7 @@
             background-color: #4fc3f7; 
         }
 
-        #labContent, #labContent2, #labContent3 {
+        #labContent, #labContent2, #labContent3, #labContent4 {
             display: none;
         }
 
@@ -33,15 +33,15 @@
             margin-left: 20px;
             margin-bottom: 0px;
             margin-top: -60px;
-            width: 150px; /* Збільшення розміру фото */
+            width: 150px; 
             height: auto;
-            position: relative; /* Використання position замість margin */
-            top: -60px; /* Регулювання підняття фото */
+            position: relative; 
+            top: -60px;
         }
 
         table {
             width: 100%;
-            margin-top: 20px; /* Додано трохи відступу від фото */
+            margin-top: 20px;
         }
 
         #output img {
@@ -80,6 +80,15 @@
             }
         }
 
+        function toggleLab4Content() {
+            var content = document.getElementById("labContent4");
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
         function loadHTMLContent(filename) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -111,7 +120,9 @@
             <td align="center">
                 <button onclick="toggleLab3Content()">Лабораторна робота №3</button>
             </td>
-            <td align="center"><a href="#"><button>Лабораторна робота №4</button></a></td>
+            <td align="center">
+                <button onclick="toggleLab4Content()">Лабораторна робота №4</button>
+            </td>
             <td align="center"><a href="#"><button>Лабораторна робота №5</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №6</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №7</button></a></td>
@@ -143,10 +154,10 @@
                 <p><button onclick="loadHTMLContent('lab2/selectors.html')">Інші селектори</button></p>
                 <p><button onclick="loadHTMLContent('lab2/conclusions2.html')">Висновки</button></p>
             </td>
+
             <td width="20%" valign="top" id="labContent3" style="display:none;">
                 <p><button onclick="loadHTMLContent('lab3/topic3.html')">Тема, Мета, Місце розташування ЛР 3</button></p>
                 <p><button onclick="loadHTMLContent('lab3/ex1.html')">Завдання 1. Зовнішній вигляд макету. Код макету.</button></p>
-                <p><button onclick="loadHTMLContent"> Завдання 2</button></p>
                 <p><button onclick="loadHTMLContent('lab3/fixedtlayout.html')">Фіксована таблична верстка</button></p>
                 <p><button onclick="loadHTMLContent('lab3/rubbertlayout.html')">Гумова таблична верстка</button></p>
                 <p><button onclick="loadHTMLContent('lab3/fixedblayout.html')">Фіксована блокова верстка</button></p>
@@ -156,6 +167,11 @@
                 <p><button onclick="loadHTMLContent('lab3/htmlflexbox.html')">html код (flexbox)</button></p>
                 <p><button onclick="loadHTMLContent('lab3/cssflexbox.html')">css код (flexbox)</button></p>
                 <p><button onclick="loadHTMLContent('lab3/conclusions3.html')">Висновки</button></p>
+            </td>
+
+            <td width="20%" valign="top" id="labContent4" style="display:none;">
+                <p><button onclick="loadHTMLContent('lab4/topic4.html')">Тема</button></p>
+                <p><button onclick="loadHTMLContent('lab4/postanovka.html')">Постановка задачі</button></p>
             </td>
 
             <td valign="top" align="center" id="output">
