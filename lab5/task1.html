@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Message</title>
+</head>
+<body>
+
+  <script>
+    // функція
+    function getShippingMessage(country, price, deliveryFee) {
+      const totalPrice = price + deliveryFee;
+      return `Shipping to ${country} will cost ${totalPrice} credits`;
+    }
+
+    // виклик функції
+    console.log(getShippingMessage("France", 100, 20));
+    console.log(getShippingMessage("Germany", 150, 30));
+    console.log(getShippingMessage("USA", 200, 40));
+  </script>
+
+</body>
+</html>
