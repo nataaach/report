@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+</head>
+<body>
+    <h1>Перевірка функції makeArray</h1>
+    <p>Перевірте консоль для перегляду результатів.</p>
+
+    <script>
+        function makeArray(firstArray, secondArray, maxLength) {
+            // Об'єднуємо масиви
+            const combinedArray = firstArray.concat(secondArray);
+            
+            // Перевіряємо довжину об'єднаного масиву
+            if (combinedArray.length > maxLength) {
+                return combinedArray.slice(0, maxLength); // Повертаємо копію масиву з maxLength елементів
+            }
+            
+            return combinedArray; // Повертаємо весь масив, якщо його довжина не перевищує maxLength
+        }
+
+        // Приклади використання функції з виведенням в консоль
+        console.log(makeArray([1, 2, 3], [4, 5, 6], 5));   // Очікуваний результат: [1, 2, 3, 4, 5]
+        console.log(makeArray([1, 2, 3], [4, 5, 6], 10));  // Очікуваний результат: [1, 2, 3, 4, 5, 6]
+        console.log(makeArray([], [1, 2, 3, 4], 3));       // Очікуваний результат: [1, 2, 3]
+        console.log(makeArray([1, 2], [3], 5));            // Очікуваний результат: [1, 2, 3]
+    </script>
+</body>
+</html>

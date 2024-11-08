@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибір дати</title>
+    <style>
+        .calendar-container {
+            width: 300px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            z-index: 10;
+            display: none;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .calendar-header button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .calendar-header select {
+            padding: 3px;
+            font-size: 14px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day, .calendar-date {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .calendar-day {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .calendar-date {
+            background-color: #e6e6e6;
+            color: #333;
+        }
+
+        .calendar-date:hover, .calendar-date.selected {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .calendar-footer button {
+            margin-top: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Вибір дати</h2>
+<form>
+    <label for="selectedDate">Вибрана дата:</label>
+    <input type="text" id="selectedDate" placeholder="Виберіть дату" readonly>
+    <button type="button" onclick="toggleCalendar()">Відкрити календар</button>
+</form>
+
+<div id="calendar" class="calendar-container">
+    <div class="calendar-header">
+        <button onclick="changeYear(-1)">«</button>
+        <select id="monthSelect" onchange="updateCalendar()">
+        </select>
+        <button onclick="changeYear(1)">»</button>
+    </div>
+    <div class="calendar-header">
+        <button onclick="changeMonth(-1)">‹</button>
+        <span id="calendarMonthYear"></span>
+        <button onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="calendar-grid" id="calendarDates">
+        <div class="calendar-day">Нд</div>
+        <div class="calendar-day">Пн</div>
+        <div class="calendar-day">Вт</div>
+        <div class="calendar-day">Ср</div>
+        <div class="calendar-day">Чт</div>
+        <div class="calendar-day">Пт</div>
+        <div class="calendar-day">Сб</div>
+        
+    </div>
+    <div class="calendar-footer">
+        <button onclick="clearDate()">Скасувати вибір</button>
+    </div>
+</div>
+
+<script>
+    let currentDate = new Date();
+    let selectedDate = null;
+
+    const monthSelect = document.getElementById("monthSelect");
+    const months = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+    months.forEach((month, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = month;
+        monthSelect.appendChild(option);
+    });
+
+    function updateCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        document.getElementById("calendarMonthYear").textContent = `${months[month]} ${year}`;
+        monthSelect.value = month;
+
+        const calendarDates = document.getElementById("calendarDates");
+        calendarDates.innerHTML = '';
+
+        //дні тижня
+        for (let day = 0; day < 7; day++) {
+            const dayElement = document.createElement("div");
+            dayElement.className = "calendar-day";
+            dayElement.textContent = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][day];
+            calendarDates.appendChild(dayElement);
+        }
+
+        //порожні клітинки 
+        for (let i = 0; i < firstDay; i++) {
+            const emptyCell = document.createElement("div");
+            calendarDates.appendChild(emptyCell);
+        }
+
+        //дні місяця
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateCell = document.createElement("div");
+            dateCell.classList.add("calendar-date");
+            dateCell.textContent = day;
+            dateCell.onclick = () => selectDate(day);
+
+            if (selectedDate && selectedDate.getDate() === day && selectedDate.getMonth() === month && selectedDate.getFullYear() === year) {
+                dateCell.classList.add("selected");
+            }
+
+            calendarDates.appendChild(dateCell);
+        }
+    }
+
+    function changeMonth(offset) {
+        currentDate.setMonth(currentDate.getMonth() + offset);
+        updateCalendar();
+    }
+
+    function changeYear(offset) {
+        currentDate.setFullYear(currentDate.getFullYear() + offset);
+        updateCalendar();
+    }
+
+    function selectDate(day) {
+        selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+        document.getElementById("selectedDate").value = selectedDate.toLocaleDateString("uk");
+        toggleCalendar();
+    }
+
+    function clearDate() {
+        selectedDate = null;
+        document.getElementById("selectedDate").value = '';
+        toggleCalendar();
+    }
+
+    function toggleCalendar() {
+        const calendar = document.getElementById("calendar");
+        calendar.style.display = calendar.style.display === "none" ? "block" : "none";
+        updateCalendar();
+    }
+
+    monthSelect.addEventListener("change", () => {
+        currentDate.setMonth(monthSelect.value);
+        updateCalendar();
+    });
+
+    updateCalendar();
+</script>
+
+</body>
+</html>

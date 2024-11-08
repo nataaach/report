@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4</title>
+</head>
+<body>
+    <h1>Перевірка роботи з масивом</h1>
+
+    <script>
+        //створення масиву заданого розміру з випадковими числами
+        function createArray(size) {
+            const array = [];
+            for (let i = 0; i < size; i++) {
+                array.push(Math.floor(Math.random() * 100)); // Заповнюємо випадковими числами 
+            }
+            return array;
+        }
+
+        //функція для обчислення суми елементів між максимальним та мінімальним значеннями
+        function sumBetweenMinMax(array) {
+            const max = Math.max(...array);
+            const min = Math.min(...array);
+            const minIndex = array.indexOf(min);
+            const maxIndex = array.indexOf(max);
+
+            let sum = 0;
+            if (minIndex < maxIndex) {
+                for (let i = minIndex + 1; i < maxIndex; i++) {
+                    sum += array[i];
+                }
+            } else {
+                for (let i = maxIndex + 1; i < minIndex; i++) {
+                    sum += array[i];
+                }
+            }
+            return sum;
+        }
+
+        //швидке сортування
+        function quickSort(array) {
+            if (array.length <= 1) {
+                return array;
+            }
+
+            const pivot = array[Math.floor(array.length / 2)];
+            const left = [];
+            const right = [];
+
+            for (let i = 0; i < array.length; i++) {
+                if (i === Math.floor(array.length / 2)) continue;
+
+                if (array[i] < pivot) {
+                    left.push(array[i]);
+                } else {
+                    right.push(array[i]);
+                }
+            }
+
+            return quickSort(left).concat(pivot, quickSort(right));
+        }
+
+        const size = parseInt(prompt("Введіть кількість елементів масиву:"));
+        const array = createArray(size);
+        console.log("Створений масив:", array);
+
+        const sum = sumBetweenMinMax(array);
+        console.log("Сума елементів між мінімальним і максимальним значеннями:", sum);
+
+        const sortedArray = quickSort([...array]); //масив для сортування
+        console.log("Вхідний масив:", array);
+        console.log("Вихідний (відсортований) масив:", sortedArray);
+    </script>
+</body>
+</html>
