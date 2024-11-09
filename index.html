@@ -88,6 +88,15 @@
                 content.style.display = "none";
             }
         }
+        function toggleLab5Content() {
+    var content = document.getElementById("labContent5");
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+
 
         function loadHTMLContent(filename) {
             var xhttp = new XMLHttpRequest();
@@ -123,13 +132,16 @@
             <td align="center">
                 <button onclick="toggleLab4Content()">Лабораторна робота №4</button>
             </td>
-            <td align="center"><a href="#"><button>Лабораторна робота №5</button></a></td>
+            <td align="center">
+                <button onclick="toggleLab5Content()">Лабораторна робота №5</button>
+            </td>
             <td align="center"><a href="#"><button>Лабораторна робота №6</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №7</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №8</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №9</button></a></td>
         </tr>
     </table>
+    
 
     <br>
 
@@ -181,11 +193,11 @@
                 <p><button onclick="loadHTMLContent('lab5/topic5.html')">Тема</button></p>
                 <p><button onclick="loadHTMLContent('lab5/meta.html')">Мета</button></p>
                 <p><button onclick="loadHTMLContent('lab5/links.html')">Посилання</button></p>
-                <p><button onclick="loadHTMLContent('lab5/task1.html')">Завдання 1</button></p>
-                <p><button onclick="loadHTMLContent('lab5/task2.html')">Завдання 2</button></p>
-                <p><button onclick="loadHTMLContent('lab5/task3.html')">Завдання 3</button></p>
-                <p><button onclick="loadHTMLContent('lab5/task4.html')">Завдання 4</button></p>
-                <p><button onclick="loadHTMLContent('lab5/task5.html')">Завдання 5</button></p>
+                <p><button onclick="loadHTMLContent('lab5/1task.html')">Завдання 1</button></p>
+                <p><button onclick="loadHTMLContent('lab5/2task.html')">Завдання 2</button></p>
+                <p><button onclick="loadHTMLContent('lab5/3task.html')">Завдання 3</button></p>
+                <p><button onclick="loadHTMLContent('lab5/4task.html')">Завдання 4</button></p>
+                <p><button onclick="loadHTMLContent('lab5/5task.html')">Завдання 5</button></p>
                 <p><button onclick="loadHTMLContent('lab5/conclusions5.html')">Висновки</button></p>
             </td>
 
