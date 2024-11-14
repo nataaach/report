@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знижки на ліки</title>
+</head>
+<body>
+    <h1>Ліки зі знижкою</h1>
+    <ul id="medicineList"></ul>
+
+    <script>
+        const medicines = [
+            { name: "Ношпа", price: 170 },
+            { name: "Анальіг", price: 55 },
+            { name: "Токатта", price: 310 },
+            { name: "Нормовен", price: 390 },
+        ];
+        //знижка
+        const discountedMedicines = medicines.map((medicine, index) => {
+            if (medicine.price > 300) {
+                return { ...medicine, price: (medicine.price * 0.7).toFixed(2), id: index + 1 };
+            }
+            return { ...medicine, id: index + 1 };
+        });
+
+        const medicineList = document.getElementById("medicineList");
+        discountedMedicines.forEach(medicine => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `ID: ${medicine.id}, Назва: ${medicine.name}, Ціна: ${medicine.price} грн`;
+            medicineList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>

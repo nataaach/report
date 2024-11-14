@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка дужок</title>
+</head>
+<body>
+    <h1>Перевірка правильності розстановки дужок</h1>
+
+    <label for="bracketsInput">Введіть рядок із дужками:</label>
+    <input type="text" id="bracketsInput" placeholder="{[()]}">
+    <button onclick="validateBrackets()">Перевірити</button>
+
+    <p id="result"></p>
+
+    <script>
+        //функція для перевірки правильності розстановки дужок
+        function checkBrackets(str) {
+            const stack = [];
+            const brackets = {
+                '(': ')',
+                '{': '}',
+                '[': ']',
+            };
+
+            for (let char of str) {
+                if (brackets[char]) {
+                    stack.push(char);
+                } else if (Object.values(brackets).includes(char)) {
+                    const openBracket = stack.pop();
+                    if (brackets[openBracket] !== char) {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.length === 0;
+        }
+
+        //функція для відображення результату на сторінці
+        function validateBrackets() {
+            const input = document.getElementById("bracketsInput").value;
+            const result = document.getElementById("result");
+            const isValid = checkBrackets(input);
+
+            result.textContent = isValid ? "Дужки розставлені правильно!" : "Помилка в розстановці дужок!";
+            result.style.color = isValid ? "green" : "red";
+        }
+    </script>
+</body>
+</html>

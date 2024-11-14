@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі продукту</title>
+</head>
+<body>
+    <h1>Інформація про продукт</h1>
+    
+    <label for="productId">Введіть ID продукту:</label>
+    <input type="number" id="productId" placeholder=" 1 або 2" />
+    <button onclick="fetchProductDetails()">Отримати дані продукту</button>
+    
+    <div id="result"></div>
+
+    <script>
+        //функція,яка надає інформацію про продукт
+        function getProductDetails(productId, successCallback, errorCallback) {
+            const products = {
+                1: { name: "Продукт A", price: 100 },
+                2: { name: "Продукт B", price: 200 },
+            };
+
+            if (products[productId]) {
+                //якщо товар знайдено
+                successCallback(products[productId]);
+            } else {
+                //якщо товар не знайдено
+                errorCallback("Продукт не знайдено");
+            }
+        }
+
+        //функція для обробки події натискання кнопки
+        function fetchProductDetails() {
+            const productId = document.getElementById("productId").value;
+            const resultDiv = document.getElementById("result");
+
+            //виклик getProductDetails
+            getProductDetails(
+                parseInt(productId),
+                (product) => {
+                    resultDiv.innerHTML = `<p>Деталі продукту:</p><p>Назва: ${product.name}</p><p>Ціна: ${product.price} грн</p>`;
+                },
+                (error) => {
+                    resultDiv.innerHTML = `<p style="color: red;">Помилка: ${error}</p>`;
+                }
+            );
+        }
+    </script>
+</body>
+</html>

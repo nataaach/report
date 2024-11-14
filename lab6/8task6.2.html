@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сховище</title>
+</head>
+<body>
+    <h1>Сховище елементів</h1>
+    
+    <div>
+        <label for="newItem">Додати елемент:</label>
+        <input type="text" id="newItem" placeholder="Введіть новий елемент">
+        <button onclick="addItem()">Додати</button>
+    </div>
+    
+    <div>
+        <label for="removeItem">Видалити елемент:</label>
+        <input type="text" id="removeItem" placeholder="Введіть елемент для видалення">
+        <button onclick="removeItem()">Видалити</button>
+    </div>
+    
+    <h2>Поточні елементи:</h2>
+    <ul id="itemList"></ul>
+
+    <script>
+        //конструктор Storage
+        function Storage(initialItems) {
+            this.items = initialItems;
+            
+            this.getItems = () => this.items;
+            
+            this.addItem = (item) => {
+                this.items.push(item);
+            };
+            
+            this.removeItem = (item) => {
+                const index = this.items.indexOf(item);
+                if (index !== -1) {
+                    this.items.splice(index, 1);
+                }
+            };
+        }
+
+        //ініціалізація об'єкта Storage
+        const storage = new Storage(["apple", "banana", "mango"]);
+
+        //функція для оновлення відображення списку елементів на сторінці
+        function updateItemList() {
+            const itemList = document.getElementById("itemList");
+            itemList.innerHTML = ""; //очистка списку
+            storage.getItems().forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                itemList.appendChild(listItem);
+            });
+        }
+
+        //функція для додавання нового елемента
+        function addItem() {
+            const newItem = document.getElementById("newItem").value.trim();
+            if (newItem) {
+                storage.addItem(newItem);
+                document.getElementById("newItem").value = ""; //очищаємо поле 
+                updateItemList();
+            }
+        }
+
+        //функція для видалення існуючого елемента
+        function removeItem() {
+            const removeItem = document.getElementById("removeItem").value.trim();
+            if (removeItem) {
+                storage.removeItem(removeItem);
+                document.getElementById("removeItem").value = ""; //очищаємо поле
+                updateItemList();
+            }
+        }
+        //початкове відображення списку елементів
+        updateItemList();
+    </script>
+</body>
+</html>

@@ -24,7 +24,7 @@
             background-color: #4fc3f7; 
         }
 
-        #labContent, #labContent2, #labContent3, #labContent4 {
+        #labContent, #labContent2, #labContent3, #labContent4, #labContent5, #labContent6 {
             display: none;
         }
 
@@ -55,48 +55,33 @@
     <script>
         function toggleLabContent() {
             var content = document.getElementById("labContent");
-            if (content.style.display === "none") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+            content.style.display = (content.style.display === "none") ? "block" : "none";
         }
 
         function toggleLab2Content() {
             var content = document.getElementById("labContent2");
-            if (content.style.display === "none") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+            content.style.display = (content.style.display === "none") ? "block" : "none";
         }
 
         function toggleLab3Content() {
             var content = document.getElementById("labContent3");
-            if (content.style.display === "none") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+            content.style.display = (content.style.display === "none") ? "block" : "none";
         }
 
         function toggleLab4Content() {
             var content = document.getElementById("labContent4");
-            if (content.style.display === "none") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+            content.style.display = (content.style.display === "none") ? "block" : "none";
         }
-        function toggleLab5Content() {
-    var content = document.getElementById("labContent5");
-    if (content.style.display === "none") {
-        content.style.display = "block";
-    } else {
-        content.style.display = "none";
-    }
-}
 
+        function toggleLab5Content() {
+            var content = document.getElementById("labContent5");
+            content.style.display = (content.style.display === "none") ? "block" : "none";
+        }
+
+        function toggleLab6Content() {
+            var content = document.getElementById("labContent6");
+            content.style.display = (content.style.display === "none") ? "block" : "none";
+        }
 
         function loadHTMLContent(filename) {
             var xhttp = new XMLHttpRequest();
@@ -120,34 +105,22 @@
     </p>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
         <tr>
-            <td align="center">
-                <button onclick="toggleLabContent()">Лабораторна робота №1</button>
-            </td>
-            <td align="center">
-                <button onclick="toggleLab2Content()">Лабораторна робота №2</button>
-            </td>
-            <td align="center">
-                <button onclick="toggleLab3Content()">Лабораторна робота №3</button>
-            </td>
-            <td align="center">
-                <button onclick="toggleLab4Content()">Лабораторна робота №4</button>
-            </td>
-            <td align="center">
-                <button onclick="toggleLab5Content()">Лабораторна робота №5</button>
-            </td>
-            <td align="center"><a href="#"><button>Лабораторна робота №6</button></a></td>
+            <td align="center"><button onclick="toggleLabContent()">Лабораторна робота №1</button></td>
+            <td align="center"><button onclick="toggleLab2Content()">Лабораторна робота №2</button></td>
+            <td align="center"><button onclick="toggleLab3Content()">Лабораторна робота №3</button></td>
+            <td align="center"><button onclick="toggleLab4Content()">Лабораторна робота №4</button></td>
+            <td align="center"><button onclick="toggleLab5Content()">Лабораторна робота №5</button></td>
+            <td align="center"><button onclick="toggleLab6Content()">Лабораторна робота №6</button></td>
             <td align="center"><a href="#"><button>Лабораторна робота №7</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №8</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №9</button></a></td>
         </tr>
     </table>
     
-
     <br>
 
     <table align="center" border="1" cellpadding="10" cellspacing="0" width="100%">
         <tr>
-    
             <td width="20%" valign="top" id="labContent">
                 <p><button onclick="loadHTMLContent('lab1/subjectenvironment.html')">Опис предметного середовища</button></p>
                 <p><button onclick="loadHTMLContent('lab1/topic.html')">Тема Мета Місце розташування ЛР №1</button></p>
@@ -189,6 +162,7 @@
                 <p><button onclick="loadHTMLContent('lab4/mobile.html')">Мобільна версія</button></p>
                 <p><button onclick="loadHTMLContent('lab4/conclusions4.html')">Висновки</button></p>
             </td>
+
             <td width="20%" valign="top" id="labContent5" style="display:none;">
                 <p><button onclick="loadHTMLContent('lab5/topic5.html')">Тема</button></p>
                 <p><button onclick="loadHTMLContent('lab5/meta.html')">Мета</button></p>
@@ -199,6 +173,15 @@
                 <p><button onclick="loadHTMLContent('lab5/4task.html')">Завдання 4</button></p>
                 <p><button onclick="loadHTMLContent('lab5/5task.html')">Завдання 5</button></p>
                 <p><button onclick="loadHTMLContent('lab5/conclusions5.html')">Висновки</button></p>
+            </td>
+
+            <td width="20%" valign="top" id="labContent6" style="display:none;">
+                <p><button onclick="loadHTMLContent('lab6/topic6.html')">Тема</button></p>
+                <p><button onclick="loadHTMLContent('lab6/meta6.html')">Мета</button></p>
+                <p><button onclick="loadHTMLContent('lab6/links6.html')">Посилання</button></p>
+                <p><button onclick="loadHTMLContent('lab6/1task6.html')">Завдання 1</button></p>
+                <p><button onclick="loadHTMLContent('lab6/2task6.html')">Завдання 2</button></p>
+                <p><button onclick="loadHTMLContent('lab6/conclusions6.html')">Висновки</button></p>
             </td>
 
             <td valign="top" align="center" id="output">
