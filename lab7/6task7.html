@@ -20,13 +20,12 @@
 
     <script>
         function doubleValues() {
-            // Отримуємо список усіх елементів <li>
-            const listItems = document.querySelectorAll('#list li');
-            // Починаємо з другого елемента (індекс 1), залишаючи перший незмінним
+          
+            const listItems = document.querySelectorAll('#list li')
             listItems.forEach((item, index) => {
-                if (index > 0) { // Пропускаємо перший елемент
-                    const currentValue = parseInt(item.textContent); // Поточне значення
-                    item.textContent = currentValue * 2; // Подвоюємо значення
+                if (index > 0) { 
+                    const currentValue = parseInt(item.textContent); 
+                    item.textContent = currentValue * 2; 
                 }
             });
         }
