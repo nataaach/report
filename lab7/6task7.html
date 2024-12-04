@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 6</title>
+    <link rel="stylesheet" href="style7.css">
+</head>
+<body>
+    <h1>ЗАВДАННЯ 6</h1>
+    <ul id="list">
+        <li>1</li>
+        <li>4</li>
+        <li>8</li>
+        <li>16</li>
+        <li>20</li>
+        <li>30</li>
+    </ul>
+    <button onclick="doubleValues()">Подвоїти</button>
+
+    <script>
+        function doubleValues() {
+            // Отримуємо список усіх елементів <li>
+            const listItems = document.querySelectorAll('#list li');
+            // Починаємо з другого елемента (індекс 1), залишаючи перший незмінним
+            listItems.forEach((item, index) => {
+                if (index > 0) { // Пропускаємо перший елемент
+                    const currentValue = parseInt(item.textContent); // Поточне значення
+                    item.textContent = currentValue * 2; // Подвоюємо значення
+                }
+            });
+        }
+    </script>
+</body>
+</html>

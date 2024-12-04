@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4</title>
+    <link rel="stylesheet" href="style7.css">
+</head>
+<body>
+    <h1>ЗАВДАННЯ 4</h1>
+    <div id="block"></div>
+    <button onclick="resizeBlock(-15)">Зменшити</button>
+    <button onclick="resizeBlock(15)">Збільшити</button>
+
+    <script>
+        const block = document.getElementById('block');
+
+        function resizeBlock(change) {
+
+            const style = window.getComputedStyle(block);
+
+
+            const currentWidth = parseInt(style.width);
+            const currentHeight = parseInt(style.height);
+
+            const newWidth = currentWidth + change;
+            const newHeight = currentHeight + change;
+
+            if (newWidth >= 15 && newHeight >= 15) {
+                block.style.width = `${newWidth}px`;
+                block.style.height = `${newHeight}px`;
+            }
+        }
+    </script>
+</body>
+</html>

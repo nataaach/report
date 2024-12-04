@@ -82,7 +82,10 @@
             var content = document.getElementById("labContent6");
             content.style.display = (content.style.display === "none") ? "block" : "none";
         }
-
+        function toggleLab7Content() {
+            var content = document.getElementById("labContent7");
+            content.style.display = (content.style.display === "none") ? "block" : "none";
+        }
         function loadHTMLContent(filename) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -111,7 +114,7 @@
             <td align="center"><button onclick="toggleLab4Content()">Лабораторна робота №4</button></td>
             <td align="center"><button onclick="toggleLab5Content()">Лабораторна робота №5</button></td>
             <td align="center"><button onclick="toggleLab6Content()">Лабораторна робота №6</button></td>
-            <td align="center"><a href="#"><button>Лабораторна робота №7</button></a></td>
+            <td align="center"><button onclick="toggleLab7Content()">Лабораторна робота №7</button></td>
             <td align="center"><a href="#"><button>Лабораторна робота №8</button></a></td>
             <td align="center"><a href="#"><button>Лабораторна робота №9</button></a></td>
         </tr>
@@ -187,7 +190,19 @@
                 <p><button onclick="loadHTMLContent('lab6/10task6.2.html')">Завдання 10</button></p>
                 <p><button onclick="loadHTMLContent('lab6/conclusions6.html')">Висновки</button></p>
             </td>
-
+            <td width="20%" valign="top" id="labContent7" style="display:none;">
+                <p><button onclick="loadHTMLContent('lab7/topic7.html')">Тема</button></p>
+                <p><button onclick="loadHTMLContent('lab7/meta7.html')">Мета</button></p>
+                <p><button onclick="loadHTMLContent('lab7/links7.html')">Посилання</button></p>
+                <p><button onclick="loadHTMLContent('lab7/2task7.html')">Завдання 1</button></p>
+                <p><button onclick="loadHTMLContent('lab7/4task7.html')">Завдання 2</button></p>
+                <p><button onclick="loadHTMLContent('lab7/6task7.html')">Завдання 3</button></p>
+                <p><button onclick="loadHTMLContent('lab7/8task7.html')">Завдання 4</button></p>
+                <p><button onclick="loadHTMLContent('lab7/9task7.html')">Завдання 5</button></p>
+                <p><button onclick="loadHTMLContent('lab7/10task7.html')">Завдання 6</button></p>
+                <p><button onclick="loadHTMLContent('lab7/conclusions7.html')">Висновки</button></p>
+            </td>
+            
             <td valign="top" align="center" id="output">
                 Виберіть пункт для перегляду інформації.
             </td>
