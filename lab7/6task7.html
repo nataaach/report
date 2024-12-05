@@ -20,9 +20,12 @@
 
     <script>
         function doubleValues() {
-          
-            const listItems = document.querySelectorAll('#list li')
+            // отримуємо всі елементи зі списку
+            const listItems = document.querySelectorAll('#list li');
+            
+            // обходимо кожен елемент у списку
             listItems.forEach((item, index) => {
+                // пропуск 1
                 if (index > 0) { 
                     const currentValue = parseInt(item.textContent); 
                     item.textContent = currentValue * 2; 

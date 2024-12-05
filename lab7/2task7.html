@@ -14,15 +14,21 @@
     <button id="swapButton">SWAP ME</button>
   </div>
   <script>
+    // отримуємо посилання на елементи і кнопку
     const input1 = document.getElementById('input1');
     const input2 = document.getElementById('input2');
     const swapButton = document.getElementById('swapButton');
 
+    // додаємо обробник click
     swapButton.addEventListener('click', () => {
+      // зберігаємо значення першого поля у тимчасовій змінній
       const temp = input1.value;
+      //надаємо першому полю значення другого
       input1.value = input2.value;
+      //надаємо другому полю значення з тимчасової змінної(першого поля)
       input2.value = temp;
     });
   </script>
 </body>
 </html>
+

@@ -17,48 +17,51 @@
 
   <script>
     function getRandomHexColor() {
-      return `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, 0)}`;
+      return `#${Math.floor(Math.random() * 16777215) 
+        .toString(16) // перетворення числа у шістнадцятковий формат
+        .padStart(6, 0)}`; 
     }
 
-    const input = document.querySelector('#controls input');
-    const createBtn = document.querySelector('[data-create]');
-    const destroyBtn = document.querySelector('[data-destroy]');
-    const boxesContainer = document.querySelector('#boxes');
+    // отримуємо посилання на елементи DOM
+    const input = document.querySelector('#controls input'); 
+    const createBtn = document.querySelector('[data-create]'); 
+    const destroyBtn = document.querySelector('[data-destroy]'); 
+    const boxesContainer = document.querySelector('#boxes'); 
 
+    // функція, яка створює блоки
     function createBoxes(amount) {
-      const boxes = [];
-      let size = 30;
+      const boxes = []; // масив для збереження створених елементів
+      let size = 30; // розмір блоку початковий
 
       for (let i = 0; i < amount; i++) {
-        const box = document.createElement('div');
-        box.style.width = `${size}px`;
-        box.style.height = `${size}px`;
-        box.style.backgroundColor = getRandomHexColor();
-        size += 10;
-        boxes.push(box);
+        const box = document.createElement('div'); // створюємо новий блок 
+        box.style.width = `${size}px`; // ширина
+        box.style.height = `${size}px`; // висота
+        box.style.backgroundColor = getRandomHexColor(); // випадковий колір блоку
+        size += 10; // +10 пікселів
+        boxes.push(box); 
       }
 
-      boxesContainer.innerHTML = ''; 
-      boxesContainer.append(...boxes);
+      boxesContainer.innerHTML = ''; //очищаємо контейнер
+      boxesContainer.append(...boxes); // додавання всіх блоків
     }
 
+    // функція, яка видаляє всі блоки
     function destroyBoxes() {
-      boxesContainer.innerHTML = ''; 
+      boxesContainer.innerHTML = ''; // контейнер очищається
     }
-
     createBtn.addEventListener('click', () => {
-      const amount = Number(input.value);
-      if (amount >= 1 && amount <= 100) {
-        createBoxes(amount);
-        input.value = ''; 
+      const amount = Number(input.value); // Отримання введеного значення
+      if (amount >= 1 && amount <= 100) { // Перевірка, чи значення в межах 1–100
+        createBoxes(amount); // Виклик функції для створення блоків
+        input.value = ''; // Очищення поля введення
       } else {
-        alert('Please enter a number between 1 and 100');
+        alert('Please enter a number between 1 and 100'); // Повідомлення про помилку
       }
     });
 
-    destroyBtn.addEventListener('click', destroyBoxes);
+    destroyBtn.addEventListener('click', destroyBoxes); // викликаємо функцію видалення блоків
   </script>
 </body>
 </html>
+

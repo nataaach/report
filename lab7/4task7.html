@@ -13,20 +13,24 @@
     <button onclick="resizeBlock(15)">Збільшити</button>
 
     <script>
+        // Отримання посилання на елемент div із ідентифікатором "block"
         const block = document.getElementById('block');
 
         function resizeBlock(change) {
-
+            // отримання поточного стилю елемента 
             const style = window.getComputedStyle(block);
 
-
+            // перетворення значення ширини та висоти зі строки на число
             const currentWidth = parseInt(style.width);
             const currentHeight = parseInt(style.height);
 
+            // розраховуємо нових значень ширини та висоти
             const newWidth = currentWidth + change;
             const newHeight = currentHeight + change;
 
+            // перевіряємо, чи новий розмір більше або дорівнює 15px
             if (newWidth >= 15 && newHeight >= 15) {
+                // застосовуємо нові розміри
                 block.style.width = `${newWidth}px`;
                 block.style.height = `${newHeight}px`;
             }

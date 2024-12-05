@@ -22,19 +22,22 @@
   </form>
 
   <script>
+     // додаємо обробник події "submit" до форми з класом "login-form"
     document.querySelector('.login-form').addEventListener('submit', function (event) {
+       // перезавантаження сторінки
       event.preventDefault(); 
 
       const formElements = event.target.elements;
       const email = formElements.email.value.trim();
       const password = formElements.password.value.trim();
 
+        //перевірка, чи всі поля заповнені
       if (!email || !password) {
-        alert('All form fields must be filled in');
-        return;
+        alert('All form fields must be filled in'); 
+        return; 
       }
-
-      const formData = {
+         // створюється об'єкт з даними форми
+        const formData = {
         email,
         password,
       };

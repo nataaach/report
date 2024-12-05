@@ -13,20 +13,23 @@
   </div>
 
   <script>
+    // Функція, яка генерує випадковий колір 
     function getRandomHexColor() {
-      return `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, 0)}`;
+      return `#${Math.floor(Math.random() * 16777215) //генерування числа
+        .toString(16) // перетворюємо число у шістнадцятковий формат
+        .padStart(6, 0)}`; 
     }
 
-    const button = document.querySelector('button.change-color');
-    const span = document.querySelector('.color');
-    const body = document.body;
+    //отримання посилань на елементи 
+    const button = document.querySelector('button.change-color'); 
+    const span = document.querySelector('.color'); 
+    const body = document.body; 
 
+    // додаємо обробника події "click" на кнопку
     button.addEventListener('click', () => {
-      const randomColor = getRandomHexColor();
-      body.style.backgroundColor = randomColor;
-      span.textContent = randomColor;
+      const randomColor = getRandomHexColor(); // генеруємо новий випадковий колір
+      body.style.backgroundColor = randomColor; 
+      span.textContent = randomColor; 
     });
   </script>
 </body>
