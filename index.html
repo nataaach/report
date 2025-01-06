@@ -24,7 +24,7 @@
             background-color: #4fc3f7; 
         }
 
-        #labContent, #labContent2, #labContent3, #labContent4, #labContent5, #labContent6 {
+        #labContent, #labContent2, #labContent3, #labContent4, #labContent5, #labContent6, #labContent7, #labContent8 {
             display: none;
         }
 
@@ -82,10 +82,17 @@
             var content = document.getElementById("labContent6");
             content.style.display = (content.style.display === "none") ? "block" : "none";
         }
+
         function toggleLab7Content() {
             var content = document.getElementById("labContent7");
             content.style.display = (content.style.display === "none") ? "block" : "none";
         }
+
+        function toggleLab8Content() {
+            var content = document.getElementById("labContent8");
+            content.style.display = (content.style.display === "none") ? "block" : "none";
+        }
+
         function loadHTMLContent(filename) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -115,8 +122,7 @@
             <td align="center"><button onclick="toggleLab5Content()">Лабораторна робота №5</button></td>
             <td align="center"><button onclick="toggleLab6Content()">Лабораторна робота №6</button></td>
             <td align="center"><button onclick="toggleLab7Content()">Лабораторна робота №7</button></td>
-            <td align="center"><a href="#"><button>Лабораторна робота №8</button></a></td>
-            <td align="center"><a href="#"><button>Лабораторна робота №9</button></a></td>
+            <td align="center"><button onclick="toggleLab8Content()">Лабораторна робота №8</button></td>
         </tr>
     </table>
     
@@ -124,83 +130,13 @@
 
     <table align="center" border="1" cellpadding="10" cellspacing="0" width="100%">
         <tr>
-            <td width="20%" valign="top" id="labContent">
-                <p><button onclick="loadHTMLContent('lab1/subjectenvironment.html')">Опис предметного середовища</button></p>
-                <p><button onclick="loadHTMLContent('lab1/topic.html')">Тема Мета Місце розташування ЛР №1</button></p>
-                <p><button onclick="loadHTMLContent('lab1/structure.html')">Структура документа</button></p>
-                <p><button onclick="loadHTMLContent('lab1/tables.html')">HTML-код таблиць</button></p>
-                <p><button onclick="loadHTMLContent('lab1/lists.html')">HTML-код списку</button></p>
-                <p><button onclick="loadHTMLContent('lab1/images.html')">HTML-код зображення</button></p>
-                <p><button onclick="loadHTMLContent('lab1/conclusions.html')">Висновки</button></p>
-            </td>
-
-            <td width="20%" valign="top" id="labContent2" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab2/topic2.html')">Тема, Мета ЛР 2, Місце розташування сайту</button></p>
-                <p><button onclick="loadHTMLContent('lab2/selectorst.html')">Селектори тегу</button></p>
-                <p><button onclick="loadHTMLContent('lab2/selectorsc.html')">Селектори класу</button></p>
-                <p><button onclick="loadHTMLContent('lab2/selectorsi.html')">Селектори ідентифікаторів</button></p>
-                <p><button onclick="loadHTMLContent('lab2/selectors.html')">Інші селектори</button></p>
-                <p><button onclick="loadHTMLContent('lab2/conclusions2.html')">Висновки</button></p>
-            </td>
-
-            <td width="20%" valign="top" id="labContent3" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab3/topic3.html')">Тема, Мета, Місце розташування ЛР 3</button></p>
-                <p><button onclick="loadHTMLContent('lab3/ex1.html')">Завдання 1. Зовнішній вигляд макету. Код макету.</button></p>
-                <p><button onclick="loadHTMLContent('lab3/fixedtlayout.html')">Фіксована таблична верстка</button></p>
-                <p><button onclick="loadHTMLContent('lab3/rubbertlayout.html')">Гумова таблична верстка</button></p>
-                <p><button onclick="loadHTMLContent('lab3/fixedblayout.html')">Фіксована блокова верстка</button></p>
-                <p><button onclick="loadHTMLContent('lab3/rubberlayout.html')">Гумова блокова верстка</button></p>
-                <p><button onclick="loadHTMLContent('lab3/flexbox.html')">Завдання 3.Верстка Flexbox</button></p>
-                <p><button onclick="loadHTMLContent('lab3/scrinflexbox.html')">Скріншот сторінки (flexbox)</button></p>
-                <p><button onclick="loadHTMLContent('lab3/htmlflexbox.html')">html код (flexbox)</button></p>
-                <p><button onclick="loadHTMLContent('lab3/cssflexbox.html')">css код (flexbox)</button></p>
-                <p><button onclick="loadHTMLContent('lab3/conclusions3.html')">Висновки</button></p>
-            </td>
-
-            <td width="20%" valign="top" id="labContent4" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab4/topic4.html')">Тема</button></p>
-                <p><button onclick="loadHTMLContent('lab4/postanovka.html')">Постановка задачі</button></p>
-                <p><button onclick="loadHTMLContent('lab4/desctop.html')">Десктопна версія</button></p>
-                <p><button onclick="loadHTMLContent('lab4/tablet.html')">Планшетна версія</button></p>
-                <p><button onclick="loadHTMLContent('lab4/mobile.html')">Мобільна версія</button></p>
-                <p><button onclick="loadHTMLContent('lab4/conclusions4.html')">Висновки</button></p>
-            </td>
-
-            <td width="20%" valign="top" id="labContent5" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab5/topic5.html')">Тема</button></p>
-                <p><button onclick="loadHTMLContent('lab5/meta.html')">Мета</button></p>
-                <p><button onclick="loadHTMLContent('lab5/links.html')">Посилання</button></p>
-                <p><button onclick="loadHTMLContent('lab5/1task.html')">Завдання 1</button></p>
-                <p><button onclick="loadHTMLContent('lab5/2task.html')">Завдання 2</button></p>
-                <p><button onclick="loadHTMLContent('lab5/3task.html')">Завдання 3</button></p>
-                <p><button onclick="loadHTMLContent('lab5/4task.html')">Завдання 4</button></p>
-                <p><button onclick="loadHTMLContent('lab5/5task.html')">Завдання 5</button></p>
-                <p><button onclick="loadHTMLContent('lab5/conclusions5.html')">Висновки</button></p>
-            </td>
-
-            <td width="20%" valign="top" id="labContent6" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab6/topic6.html')">Тема</button></p>
-                <p><button onclick="loadHTMLContent('lab6/meta6.html')">Мета</button></p>
-                <p><button onclick="loadHTMLContent('lab6/links6.html')">Посилання</button></p>
-                <p><button onclick="loadHTMLContent('lab6/2task6.2.html')">Завдання 2</button></p>
-                <p><button onclick="loadHTMLContent('lab6/4task6.2.html')">Завдання 4</button></p>
-                <p><button onclick="loadHTMLContent('lab6/6task6.2.html')">Завдання 6</button></p>
-                <p><button onclick="loadHTMLContent('lab6/8task6.3.html')">Завдання 8</button></p>
-                <p><button onclick="loadHTMLContent('lab6/9task6.2.html')">Завдання 9</button></p>
-                <p><button onclick="loadHTMLContent('lab6/10task6.2.html')">Завдання 10</button></p>
-                <p><button onclick="loadHTMLContent('lab6/conclusions6.html')">Висновки</button></p>
-            </td>
-            <td width="20%" valign="top" id="labContent7" style="display:none;">
-                <p><button onclick="loadHTMLContent('lab7/topic7.html')">Тема</button></p>
-                <p><button onclick="loadHTMLContent('lab7/meta7.html')">Мета</button></p>
-                <p><button onclick="loadHTMLContent('lab7/links7.html')">Посилання</button></p>
-                <p><button onclick="loadHTMLContent('lab7/2.1task7.html')">Завдання 2</button></p>
-                <p><button onclick="loadHTMLContent('lab7/4.1task7.html')">Завдання 4</button></p>
-                <p><button onclick="loadHTMLContent('lab7/6.2task7.html')">Завдання 6</button></p>
-                <p><button onclick="loadHTMLContent('lab7/8.2task7.html')">Завдання 8</button></p>
-                <p><button onclick="loadHTMLContent('lab7/9.2task7.html')">Завдання 9</button></p>
-                <p><button onclick="loadHTMLContent('lab7/10.2task7.html')">Завдання 10</button></p>
-                <p><button onclick="loadHTMLContent('lab7/conclusions7.html')">Висновки</button></p>
+            <td width="20%" valign="top" id="labContent8" style="display:none;">
+                <p><button onclick="loadHTMLContent('lab8/topic8.html')">Тема</button></p>
+                <p><button onclick="loadHTMLContent('lab8/meta8.html')">Мета</button></p>
+                <p><button onclick="loadHTMLContent('lab8/links8.html')">Посилання</button></p>
+                <p><button onclick="loadHTMLContent('lab8/task1.html')">Завдання 1</button></p>
+                <p><button onclick="loadHTMLContent('lab8/task2.html')">Завдання 2</button></p>
+                <p><button onclick="loadHTMLContent('lab8/conclusions8.html')">Висновки</button></p>
             </td>
             
             <td valign="top" align="center" id="output">
