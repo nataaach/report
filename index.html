@@ -89,7 +89,7 @@
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById("output").innerHTML = this.responseText;
-                        document.getElementById("output").style.display = "block"; // Показуємо біле вікно
+                        document.getElementById("output").style.display = "block"; 
                     }
                 };
                 xhttp.open("GET", filename, true);
@@ -140,7 +140,7 @@
                     <p><button onclick="loadHTMLContent('lab1/tables.html')">HTML-код таблиць</button></p>
                     <p><button onclick="loadHTMLContent('lab1/lists.html')">HTML-код списків</button></p>
                     <p><button onclick="loadHTMLContent('lab1/images.html')">HTML-код зображення</button></p>
-                    <p><button onclick="loadHTMLContent('lab1/conclusions1.html')">Висновки</button></p>
+                    <p><button onclick="loadHTMLContent('lab1/conclusions.html')">Висновки</button></p>
                 </div>
                 <div id="labContent2" style="display:none;">
                     <p><button onclick="loadHTMLContent('lab2/topic2.html')">Тема</button></p>
