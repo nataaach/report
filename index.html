@@ -1,115 +1,114 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Звіти з Лабораторних Робіт</title>
-    <style>
-        body {
-            background-color: #e0f7fa;
-        }
-
-        button {
-            background-color: #81d4fa;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #4fc3f7;
-        }
-
-        #output {
-    margin: 20px auto; /* Центрування по горизонталі */
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 800px; /* Фіксована ширина */
-    max-height: 500px; /* Максимальна висота */
-    overflow-y: auto; /* Прокрутка для довжини */
-    display: none; /* Сховано за замовчуванням */
-}
-
-
-        table {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        #output img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header img {
-            width: 150px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .header h1 {
-            text-align: center;
-            flex: 1;
-        }
-
-        .content-container {
-            display: flex;
-        }
-
-        .content-container td {
-            vertical-align: top;
-        }
-
-        .buttons-column {
-            width: 20%;
-        }
-
-        .output-column {
-            width: 80%;
-        }
-    </style>
-    <script>
-        function loadHTMLContent(filename) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("output").innerHTML = this.responseText;
-                    document.getElementById("output").style.display = "block"; // Показуємо біле вікно
-                }
-            };
-            xhttp.open("GET", filename, true);
-            xhttp.send();
-        }
-
-        function showLabContent(labId) {
-            const allLabs = document.querySelectorAll("[id^='labContent']");
-            allLabs.forEach(lab => lab.style.display = "none");
-
-            const currentLab = document.getElementById(labId);
-            if (currentLab) {
-                currentLab.style.display = "block";
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Звіти з Лабораторних Робіт</title>
+        <style>
+            body {
+                background-color: #e0f7fa;
             }
-
-            // Ховаємо вікно при перемиканні лабораторій
-            document.getElementById("output").style.display = "none";
-        }
-    </script>
-</head>
+    
+            button {
+                background-color: #81d4fa;
+                color: #000;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                margin: 5px;
+                border-radius: 5px;
+            }
+    
+            button:hover {
+                background-color: #4fc3f7;
+            }
+    
+            #output {
+        margin: 20px auto; /* Центрування по горизонталі */
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 800px; /* Фіксована ширина */
+        max-height: 500px; /* Максимальна висота */
+        overflow-y: auto; /* Прокрутка для довжини */
+        display: none; /* Сховано за замовчуванням */
+    }
+    
+    
+            table {
+                width: 100%;
+                margin-top: 20px;
+            }
+    
+            #output img {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+                margin-top: 20px;
+            }
+    
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .header img {
+                width: 150px;
+                height: auto;
+                border-radius: 5px;
+            }
+    
+            .header h1 {
+                text-align: center;
+                flex: 1;
+            }
+    
+            .content-container {
+                display: flex;
+            }
+    
+            .content-container td {
+                vertical-align: top;
+            }
+    
+            .buttons-column {
+                width: 20%;
+            }
+    
+            .output-column {
+                width: 80%;
+            }
+        </style>
+        <script>
+            function loadHTMLContent(filename) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("output").innerHTML = this.responseText;
+                        document.getElementById("output").style.display = "block"; // Показуємо біле вікно
+                    }
+                };
+                xhttp.open("GET", filename, true);
+                xhttp.send();
+            }
+    
+            function showLabContent(labId) {
+                const allLabs = document.querySelectorAll("[id^='labContent']");
+                allLabs.forEach(lab => lab.style.display = "none");
+    
+                const currentLab = document.getElementById(labId);
+                if (currentLab) {
+                    currentLab.style.display = "block";
+                }
+    
+                document.getElementById("output").style.display = "none";
+            }
+        </script>
+    </head>
 <body>
     <div class="header">
         <h1>ЗВІТ З ЛАБОРАТОРНИХ РОБІТ</h1>
